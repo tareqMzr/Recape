@@ -80,7 +80,7 @@ function authenticate(req, res, next) {
     console.log(authParms.id, authParms.key);
     if (authParms) {
         const token = authParms.key;
-        if (token === 'your-secret-token') {
+        if (token === process.env.token) {
             next();
         } else {
             res.sendStatus(403);
